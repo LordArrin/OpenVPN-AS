@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:t="http://twistedmatrix.com/ns/twisted.web.template/0.1">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title t:render="title"></title>
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+
+        <!-- CSS -->
+        <link href="bootstrap.min.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="bootstrap-toggle.min.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="bootstrap-select.min.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="all.min.css" rel="stylesheet" type="text/css" />
+        <link href="dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="verge.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="load-fonts.css" rel="stylesheet" type="text/css" media="screen" />
+        <!-- Javascript -->
+        <script type="text/javascript" src="qrcode.js"></script>
+        <script type="text/javascript" src="wufoo.js"></script>
+        <script type="text/javascript" src="saveAs.js"></script>
+        <script type="text/javascript" src="jquery.min.js" ></script>
+        <script type="text/javascript" src="popper.min.js"></script>
+        <script type="text/javascript" src="bootstrap.min.js"></script>
+        <script type="text/javascript" src="bootstrap-toggle.min.js"></script>
+        <script type="text/javascript" src="bootstrap-select.min.js"></script>
+        <script type="text/javascript" src="tooltips.js"></script>
+        <script type="text/javascript" src="jquery.dataTables.js" charset="utf8"></script>
+        <script type="text/javascript" src="dataTables.bootstrap4.min.js" charset="utf8"></script>
+        <script t:render="js"></script>
+        <script t:render="js_common"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+
+            <!-- Main Content -->
+            <div t:render="page_display" style="margin: 0px; padding: 0px; width: 100%">
+                <div class="row" id="page" name="page" >
+                    <!-- start sidebar1 -->
+                    <nav id="sidebar" class="col-md-2" style="padding-left: 0; padding-right: 0;">
+
+                        <div class="sidebar-header text-center pt-4 mb-3">
+                            <img src="logo-white.png" style="max-width: 70%;"></img>
+                            <t:transparent t:render="as_version" />
+                        </div>
+
+                        <t:transparent t:render="sidebar_menu" />
+
+                        <div class="panel-heading">
+                            <h4 class="panel-title-no-expand">
+                                <a target="_blank" style="color: inherit" href="https://openvpn.net/static-links/documentation">Documentation</a>
+                            </h4>
+                        </div>
+
+                        <div class="panel-heading">
+                            <h4 class="panel-title-no-expand">
+                                <a target="_blank" style="color: inherit" href="https://openvpn.net/static-links/contact-support
+">Support</a>
+                            </h4>
+                        </div>
+
+                        <div style="padding: 1rem;">
+                            <a href="__logout__" target="" title="Logout this session" onclick="" style="color: inherit"><div id="logout" class="btn btn-block btn-outline-light"><i class="fal fa-2x fa-sign-out-alt" aria-hidden="true"> </i><span style="line-height:28px;" class="font-weight-bold align-text-bottom">   Logout</span></div></a>
+                        </div>
+
+                        <div class="pt-3">
+                            <div class="container text-center">
+                                <span class="pr-1" style="font-size: 10px;font-weight: 600;">POWERED BY</span>
+                                <img class="OpenVPN-logo" src="open-vpn-logo.png" srcset="open-vpn-logo@2x.png 2x, open-vpn-logo@3x.png 3x"></img>
+                            </div>
+                            <p class="legal text-center" style="font-weight: normal; font-size: 10px;">
+                                <t:transparent t:render="footer" />
+                                <br/>
+                                All Rights Reserved
+                            </p>
+                        </div>
+                    </nav>
+                    <!-- end sidebar1 -->
+
+                    <!-- content goes here -->
+                    <main id="content" role="main" class="col-md-10 p-0">
+                        <t:transparent t:render="content" />
+                    </main>
+
+                </div>
+            </div>
+            <!-- end Main Content -->
+
+            <!-- EULA -->
+            <t:transparent t:render="eula" />
+            <t:transparent t:render="euladisplay" />
+
+            <!-- GA Enrollment -->
+            <t:transparent t:render="gaform" />
+
+        </div>
+    </body>
+</html>

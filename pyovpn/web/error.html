@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:t="http://twistedmatrix.com/ns/twisted.web.template/0.1">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title t:render="title"></title>
+        <style type="text/css">
+         body {
+             font-family: arial, sans-serif;
+         }
+
+         blockquote {
+             border-style: solid;
+             border-width: 1px;
+             border-color: black;
+             background-color: #ffdfdf;
+             padding: 10px;
+         }
+
+         tt {
+             font-size: 125%;
+             font-weight: bold;
+         }
+
+         strong {
+             color: red;
+         }
+        </style>
+    </head>
+    <body>
+        <h1 t:render="heading"></h1>
+        <p t:render="text"></p>
+        <blockquote t:render="error"></blockquote>
+        <h2 t:render="link"></h2>
+    </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:t="http://twistedmatrix.com/ns/twisted.web.template/0.1">
+    <body>
+        <!-- Modal -->
+        <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="profileModalLabel"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <input type="hidden" id="modal_username" value="" />
+                    <div class="modal-body">
+                        <div class="radio">
+                            <input type="radio"
+                                   id="profile-type-userlocked"
+                                   name="profile-type" value="userlocked"
+                                   checked="checked" />
+                            <label for="profile-type-userlocked">
+                                User-Locked
+                            </label>
+                            <input type="radio"
+                                   id="profile-type-autologin"
+                                   name="profile-type" value="autologin"
+                                   class="ml-4" />
+                            <label for="profile-type-autologin">
+                                Autologin
+                            </label>
+                        </div>
+
+                        <br />
+                        <input type="text"
+                               id="profile-comment"
+                               name="comment"
+                               placeholder="Add a Comment (optional)"
+                               class="form-control" />
+                        <br />
+
+                        <t:transparent t:render="tlscryptv2">
+                            <div>
+                                <t:attr name="class"><t:slot name="cls" /></t:attr>
+                                <input type="checkbox"
+                                    id="tls-crypt-v2"
+                                    name="tls-cryptv2" />
+                                <label for="tls-crypt-v2">
+                                    tls-crypt v2
+                                </label>
+                            </div>
+                        </t:transparent>
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button name="button" type="button"
+                                class="btn btn-block btn-outline-success"
+                                id="createBtn"
+                        onclick="createNewProfile();">
+                            <i class="fal fa-plus-circle">
+                            </i> Create Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

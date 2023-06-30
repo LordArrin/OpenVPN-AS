@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:t="http://twistedmatrix.com/ns/twisted.web.template/0.1">
+
+    <br />
+    <div class="row pb-5 pt-5">
+        <div class="col-2" style="min-width: max-content;">
+            <div class="section text-justify">
+                <h3>1. Choose a Common Name (CN)</h3>
+                <input  class="form-control" type="text" name="ca_cn"  placeholder="eg. My OpenVPN CA (optional)" />
+            </div>
+
+            <div class="section text-justify pt-5 ">
+                <h3>2. Choose a signing Algorithm</h3>
+                <div class="row">
+                    <select id="select-algo" class="selectpicker show-tick" data-live-search="true" name="key_algorithm" data-size="auto" title="Choose an Algorithm" data-style="btn-outline-secondary" data-width="100%">
+                        <optgroup label="RSA">
+                            <option value="rsa 2048">RSA 2048</option>
+                            <option value="rsa 3072">RSA 3072</option>
+                            <option value="rsa 4096">RSA 4096</option>
+                        </optgroup>
+                        
+                        <option data-divider="true"></option>
+                        <optgroup label="Suite B Curves">
+                            <option value="secp256r1">secp256r1</option>
+                            <option value="secp384r1">secp384r1</option>
+                            <option value="secp521r1">secp521r1</option>
+                        </optgroup>
+
+                        <option data-divider="true"></option>
+                        <optgroup label="Ed Curves">
+                            <option value="ed25519">ed25519</option>
+                            <option value="ed448">ed448</option>
+                        </optgroup>
+
+                        <optgroup label="Other Curves">
+                            <option value="sect233k1">sect233k1</option>
+                            <option value="sect283k1">sect283k1</option>
+                            <option value="sect233r1">sect233r1</option>
+                            <option value="sect283r1">sect283r1</option>
+                            <option value="sect571r1">sect571r1</option>
+                            <option value="sect571k1">sect571k1</option>
+                            <option value="sect409r1">sect409r1</option>
+                            <option value="sect409k1">sect409k1</option>
+                            <option data-divider="true"></option>
+                            <option value="secp224r1">secp224r1</option>
+                            <option value="secp256k1">secp256k1</option>
+                            <option data-divider="true"></option>
+                            <option value="brainpoolP256r1">brainpoolP256r1</option>
+                            <option value="brainpoolP384r1">brainpoolP384r1</option>
+                            <option value="brainpoolP512r1">brainpoolP512r1</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section text-justify pt-5">
+                <h3>3. Finalize</h3>
+                <p>Note: This will do a service-level Access Server Restart</p>
+                <div class="row">
+                    <br />
+                    <button class="btn btn-outline-success btn-block" type="submit" value="Create" name="button" id="submitBtn" disabled="disabled">
+                        <i class="fal fa-plus-circle" />
+                        Create New CA
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="col ml-4 pt-3">
+
+            <div class="section text-justify">
+                <h3>Key signing choices</h3>
+            </div>
+
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td>
+                            <h5 class="card-title text-nowrap">RSA</h5>
+                            <h6 class="card-subtitle mb-2 text-muted text-nowrap">Best Compatibility</h6>
+                    </td>
+                    <td>
+                        <p class="card-text">
+                            Works with every OpenVPN client.
+                        </p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h5 class="card-title text-nowrap">Suite B Curves</h5>
+                        <h6 class="card-subtitle mb-2 text-muted text-nowrap">Good Compatibility</h6>
+                    </td>
+                    <td>
+                        <p class="card-text">
+                            Access Server recommends secp384r1 as it is compatible with almost all OpenVPN clients.
+                        </p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h5 class="card-title text-nowrap">Ed25519, Ed448</h5>
+                        <h6 class="card-subtitle mb-2 text-muted text-nowrap">Limited Compatibility</h6>
+                    </td>
+                    <td>
+                        <p class="card-text">
+                            Compatible only with OpenVPN Connect 3.2+ and OpenVPN clients that use OpenSSL 1.1.1+.
+                        </p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h5 class="card-title text-nowrap">Other Curves</h5>
+                        <h6 class="card-subtitle mb-2 text-muted text-nowrap">Not Recommended</h6>
+                    </td>
+                    <td>
+                        <p class="card-text">
+                            Support is generally much weaker and may require special setup for the client. Using these
+                            curves will also disable TLS 1.3.
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</html>

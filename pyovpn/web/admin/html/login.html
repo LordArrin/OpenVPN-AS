@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:t="http://twistedmatrix.com/ns/twisted.web.template/0.1">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>OpenVPN Login</title>
+
+        <link href="bootstrap.min.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="all.min.css" rel="stylesheet" type="text/css" />
+        <link href="login.css" rel="stylesheet" type="text/css" />
+        <link href="load-fonts.css" rel="stylesheet" type="text/css" />
+        <script src="jquery.min.js" type="text/javascript"></script>
+        <script src="popper.min.js" type="text/javascript"></script>
+        <script src="bootstrap.min.js" type="text/javascript"></script>
+
+        <script>
+         $(function() {
+             $("#username").focus();
+         });
+        </script>
+    </head>
+
+    <body>
+
+        <div class="container">
+            <div class="row">
+                <div id="outer-container" class="container text-center">
+                    <header>
+                        <img src="logo" class="pb-3" alt="OpenVPN Access Server - commercial enterprise VPN solution" />
+                    </header>
+                    <h3 t:render="company_name" id="company-name"></h3>
+
+                    <div id="login-card" class="col-md-7 col-lg-5 p-4">
+                        <p t:render="caption_break"></p>
+
+                        <form action="__login__" method="post">
+                            <label t:render="top">
+                                <span>Domain</span>
+                                <select name="domain">
+                                    <div t:render="list" />
+                                </select>
+                            </label>
+
+                            <div id="caption-container" class="form-row">
+                                <h3 t:render="caption" id="caption"></h3>
+                            </div>
+
+                            <div class="form-row">
+
+                                <div t:render="username_password_display" class="my-input-group">
+                                    <!-- <span>Username</span> -->
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fal fa-user-circle fa-fw" aria-hidden="true"></i></span>
+                                        </div>
+                                        <input type="text" name="username" id="username" class="text-center form-control form-control-lg" placeholder="Username">
+                                        <t:attr name="autocomplete"><t:transparent t:render="autocomplete" /></t:attr>
+    </input>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+
+                                <div t:render="username_password_display" class="my-input-group">
+                                    <!-- <span>Password</span> -->
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fal fa-key fa-fw"></i></span>
+                                        </div>
+                                        <input type="password" name="password" id="password" class="text-center form-control form-control-lg" placeholder="Password">
+                                        <t:attr name="autocomplete"><t:transparent t:render="autocomplete" /></t:attr>
+                                        </input>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div t:render="response" class="my-input-group">
+                                <!-- <span>Challenge-Response 2FA</span> -->
+                                <h5 t:render="response_label" for="response"></h5>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fal fa-key fa-fw"></i></span>
+                                    </div>
+
+                                    <input name="response" id="response" class="text-center form-control form-control-lg" autofocus="true">
+                                        <t:attr name="autocomplete"><t:transparent t:render="autocomplete" /></t:attr>
+                                        <t:attr name="type"><t:transparent t:render="type" /></t:attr>
+                                        <t:attr name="placeholder"><t:transparent t:render="placeholder" /></t:attr>
+                                        </input>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="alert alert-danger text-center" t:render="maybe_error" id="maybe-error"></div>
+                            </div>
+
+                            <div class="form-row">
+                                <button id="submit-button" type="submit" class="btn btn-success btn-lg btn-block" style="">Sign In</button>
+                            </div>
+                        </form>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div t:render="footer"></div>
+    </body>
+</html>

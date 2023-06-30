@@ -1,0 +1,127 @@
+<!-- lib for rendering QR codes (for Google Authenticator) -->
+<script type="text/javascript" src="js/lib/qrcode.js"></script>
+
+<!-- Modal: modalDownloadError-->
+<div class="modal fade right" id="modalDownloadError" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-notify modal-info" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <div class="col-3">
+                </div>
+                <div class="col-9 text-left">
+                    <h4 class="heading">Download Error</h4>
+                </div>
+            </div>
+
+            <!--Body-->
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-3" style="color: indianred">
+                        <p></p>
+                        <p class="text-center"><i class="fal fa-exclamation-triangle fa-4x"></i></p>
+                    </div>
+
+                    <div class="col-9">
+                        <p class="text-left">An error occured while trying to download OpenVPN Connect from the server. The required client installer file was not found on the server.</p>
+                        <p class="text-left">To resolve this you must contact the administrator of this server. The administrator must ensure that the required bundled client software package is correctly installed on the server.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+                <button class="btn-primary dl-btn btn-lg btn mt-1" data-dismiss="modal">Continue</button>
+            </div>
+        </div>
+        <!--/Content-->
+    </div>
+</div>
+<!-- Modal: modalDownloadError-->
+
+<div id="downloads">
+    <div id="googleauth-locked" class="d-none">
+        <h3>
+            Google Authenticator Enabled
+        </h3>
+        <p>
+            Google Authenticator has been enabled for this account, and the secret key is now locked.
+            If you need to rescan your key, please contact your VPN Administrator.
+        </p>
+        <hr>
+    </div>
+
+    <div id="apps-section" class="text-justify">
+        <div class="text-center">
+            <div id="recommended-apps-section" class="d-none">
+                <p>OpenVPN Connect Recommended for your device:</p>
+                <ul id="recommended-apps" class="cws-ul"></ul>
+                <hr />
+            </div>
+
+            <div id="all-apps-section" class="d-none">
+                <p>OpenVPN Connect for all Platforms:</p>
+                <ul id="apps" class="cws-ul"></ul>
+            </div>
+
+            <div id="mobile-apps-section" class="d-none pt-3">
+                <ul id="mobile-apps" class="cws-ul"></ul>
+            </div>
+
+            <div id="new-apps-section" class="d-none">
+                <hr />
+                <p>OpenVPN Connect v3:</p>
+                <ul id="new-apps" class="cws-ul"></ul>
+            </div>
+
+            <div id="select-profile-section" class="d-none" >
+                <hr />
+                <p>Available Connection Profiles:</p>
+                <ul id="select-profile"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="googleauth" class="d-none ">
+        <p class="text-justify">
+            You must authenticate using a time-based 6 digit one-time password.
+            You must go through this enrollment process in order to sign in.
+            Please scan the QR code or enter the code below into a device or app that is compatible with the Google Authenticator method.
+        </p>
+
+        <div id="qrcode-table" class="d-none"></div>
+        <b id="ga-key" style="font-size: x-large;"></b>
+        <div id="qr-challenge" class="pt-3">
+            <p class="form-field">
+                <input type="text" id="response-clear" class="form-control form-control-lg"
+                       placeholder="6-digit code" style="text-align: center;" />
+                <label id="qr-error" style="width: 100%;" class="d-none alert alert-danger mt-3">
+                    Invalid code. Please try again
+                </label>
+            </p>
+        </div>
+        <button id="ga-qr-scanned" class="btn btn-block btn-lg btn-primary " style="background: #1a3867; ">
+            Confirm Code
+        </button>
+        <button id="ga-qr-cancel"  class="btn btn-block btn-lg btn-secondary">
+            Cancel
+        </button>
+    </div>
+    <div id="downloads-buttons" class="cws-btn-group" >
+        <hr />
+        <button id="btn-profile" class="btn-primary dl-btn btn btn-lg mt-1 d-none">
+            Profiles Management
+        </button>
+        <button id="chpasswd" class="btn-primary dl-btn btn btn-lg mt-1 d-none">
+            Change Password
+        </button>
+        <button id="manage" class="btn-primary dl-btn btn btn-lg mt-1 d-none">
+            Go to Admin Panel
+        </button>
+        <button id="logout" class="btn-primary dl-btn btn-lg btn mt-1">
+            Log Out
+        </button>
+    </div>
+</div>

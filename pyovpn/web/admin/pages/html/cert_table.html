@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:t="http://twistedmatrix.com/ns/twisted.web.template/0.1">
+    <body>
+        <br />
+        <table id="ca-table" class="table table box-table mt-5">
+            <thead>
+                <tr>
+                    <!-- <th scope="col">SN</th> -->
+                    <th scope="col">Type</th>
+                    <th scope="col" class="text-left cn-col">Certificate CN</th>
+                    <th scope="col"  class="text-left algorithm-col">Algorithm</th>
+                    <th scope="col" class="text-center expires-col">Expires</th>
+                    <th scope="col" class="text-center">User Profiles</th>
+                    <th scope="col" class="text-right actions-col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <t:transparent t:render="ca_rows">
+                    <tr>
+                        <!-- <td><t:slot name="ca_sn" /></td> -->
+                        <td class="align-middle text-left"><t:slot name="ca_type" /></td>
+                        <td class="align-middle text-left"><t:slot name="ca_name" /></td>
+                        <td class="align-middle text-left"><t:slot name="ca_algo" /></td>
+                        <td class="align-middle text-center" data-toggle="tooltip">
+                            <t:slot name="ca_expires" />
+                            <t:attr name="title">
+                                <t:slot name="ca_expires_tooltip" />
+                            </t:attr>
+                        </td>
+                        <td class="align-middle text-center"><t:slot name="ca_num_users" /></td>
+                        <td class="align-middle text-right actions-col">
+                          <div class="form-row">
+                            <div class="col-auto">
+                              <!-- <form action="/admin/user_profiles" method="post"> -->
+                              <input type='hidden' value='banana'/>
+                              <button class="btn btn-outline-secondary mb-2" name="ca-cn" type="submit">
+                                <t:attr name="value"><t:slot name="ca_name" /></t:attr>
+                                <i class="fal fa-file-user" /> View Profiles
+                              </button>
+                              <!-- </form> -->
+                            </div>
+
+                            <div class="col-auto">
+                              <button class="btn btn-outline-danger" type="button" data-toggle="modal" data-target="#deleteModal">
+                                <t:attr name="data-ca-sn"><t:slot name="ca_sn" /></t:attr>
+                                <t:attr name="data-ca-cn"><t:slot name="ca_name" /></t:attr>
+                                <i class="fal fa-trash-alt" /> Delete
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+                    </tr>
+                </t:transparent>
+            </tbody>
+        </table>
+    </body>
+</html>

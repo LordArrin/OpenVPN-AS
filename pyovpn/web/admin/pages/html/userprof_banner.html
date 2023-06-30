@@ -1,0 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:t="http://twistedmatrix.com/ns/twisted.web.template/0.1">
+    <body>
+        <t:transparent t:render="ca_banner">
+            <div class="ml-4 mr-4 alert alert-info" role="alert">
+                <h4 class="alert-heading">Showing results for <t:slot name="ca_filter_name" /> only!</h4>
+                <p>You got here using the CA management page. This page is currently showing User profiles corresponding to <t:slot name="ca_filter_name" /> only. If you wish to view profiles by any and all CAs, click on the button below.</p>
+                <hr />
+                <p class="mb-0">
+                    <button class="btn btn-success" id="btn-show-all">Show all Profiles</button>
+                </p>
+            </div>
+        </t:transparent>
+    </body>
+</html>

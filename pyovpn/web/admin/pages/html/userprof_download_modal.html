@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:t="http://twistedmatrix.com/ns/twisted.web.template/0.1">
+    <body>
+        <!-- Modal -->
+        <div class="modal fade" id="downloadsModal" tabindex="-1" role="dialog" aria-labelledby="downloadsModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="downloadsModalLabel">Download Options</h5>
+                    </div>
+                    <input id="profile-serial" type="hidden" value="" />
+                    <div class="modal-body">
+
+                        <div class="radio">
+                            <input type="radio"
+                                   id="download-type-file"
+                                   name="download-type" value="file"
+                                   checked="checked" />
+                            <label for="download-type-file">
+                                .ovpn file
+                            </label>
+                            <br />
+
+                            <input type="radio"
+                                   id="download-type-mac-v3"
+                                   name="download-type" value="mac_v3" />
+                            <label for="download-type-mac-v3">
+                                Mac v3 Installer bundled with Profile
+                            </label>
+                            <br />
+
+                            <input type="radio"
+                                   id="download-type-win-v3"
+                                   name="download-type" value="win_v3" />
+                            <label for="download-type-win-v3">
+                                Win v3 Installer bundled with Profile
+                            </label>
+                            <br />
+
+                            <input type="radio"
+                                   id="download-type-mac"
+                                   name="download-type" value="mac" />
+                            <label for="download-type-mac">
+                                Mac Installer bundled with Profile
+                            </label>
+                            <br />
+
+                            <input type="radio"
+                                   id="download-type-win"
+                                   name="download-type" value="win" />
+                            <label for="download-type-win">
+                                Win Installer bundled with Profile
+                            </label>
+                            <br />
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="download-btn" type="button" class="btn btn-primary">Download</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

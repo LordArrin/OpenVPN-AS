@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:t="http://twistedmatrix.com/ns/twisted.web.template/0.1">
+    <body>
+        <br />
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+            <li class="nav-item">
+                <a class="nav-link active" id="ca-overview-tab" data-toggle="tab" href="#ca-overview" role="tab" aria-controls="ca-overview" aria-selected="true">CA Overview</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="create-new-ca-tab" data-toggle="tab" href="#create-new-ca" role="tab" aria-controls="create-new-ca" aria-selected="false">Create New CA</a>
+            </li>
+
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="ca-overview" role="tabpanel" aria-labelledby="ca-overview-tab">
+                <t:transparent t:render="ca_overview" />
+            </div>
+            <div class="tab-pane fade" id="create-new-ca" role="tabpanel" aria-labelledby="create-new-ca-tab">
+                <t:transparent t:render="create_new_ca" />
+            </div>
+        </div>
+
+    </body>
+</html>
