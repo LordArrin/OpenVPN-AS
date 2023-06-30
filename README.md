@@ -3,6 +3,7 @@
  Set up with help:
  - [spy-soft.net](https://spy-soft.net/openvpn-access-server-limitations/)
  - [Nirob3x](https://github.com/Nirob3x/OpenVPN-As-Unlimited)
+ - [rocky](https://github.com/rocky/python-decompile3)
 
  How-to-guide:
 
