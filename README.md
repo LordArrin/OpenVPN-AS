@@ -8,7 +8,7 @@
 
  How-to-guide:
 
- 1. Install Ubuntu 20.04 LTS.
+ 1. Install Ubuntu 20.04 LTS x86-64.
  2. sudo su
  3. apt update && apt -y install ca-certificates wget net-tools gnupg
  4. wget https://as-repository.openvpn.net/as-repo-public.asc -qO /etc/apt/trusted.gpg.d/as-repository.asc
